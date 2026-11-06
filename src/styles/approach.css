@@ -1,0 +1,412 @@
+
+/* =========================================
+   APPROACH SECTION
+========================================= */
+
+.approach-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg-primary);
+}
+
+.approach-grid-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.approach-container {
+  position: relative;
+  z-index: 1;
+}
+
+.approach-header {
+  margin-bottom: 72px;
+  text-align: center;
+}
+
+.approach-label {
+  justify-content: center;
+}
+
+.approach-title {
+  text-align: center;
+}
+
+.approach-description {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* =========================================
+   APPROACH CARDS
+========================================= */
+
+.approach-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 24px;
+  align-items: stretch;
+}
+
+.approach-card {
+  position: relative;
+  min-width: 0;
+  padding: 36px 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.approach-card:hover {
+  border-color: color-mix(
+    in srgb,
+    var(--approach-color) 40%,
+    transparent
+  );
+  box-shadow: 0 0 40px
+    color-mix(in srgb, var(--approach-color) 12%, transparent);
+  transform: translateY(-8px);
+}
+
+.approach-number-watermark {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  color: color-mix(in srgb, var(--approach-color) 8%, transparent);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 4rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.05em;
+  user-select: none;
+  pointer-events: none;
+}
+
+.approach-top-accent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    var(--approach-color),
+    transparent
+  );
+  opacity: 0.6;
+}
+
+.approach-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 20px;
+  border: 1px solid
+    color-mix(in srgb, var(--approach-color) 25%, transparent);
+  border-radius: 14px;
+  background: color-mix(
+    in srgb,
+    var(--approach-color) 9%,
+    transparent
+  );
+  font-size: 1.4rem;
+}
+
+.approach-step-number {
+  margin-bottom: 10px;
+  color: var(--approach-color);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.approach-card-title {
+  margin: 0 0 12px;
+  color: #f1f5f9;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: -0.01em;
+  overflow-wrap: anywhere;
+}
+
+.approach-card-description {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+/* =========================================
+   EXPERIENCE TIMELINE
+========================================= */
+
+.experience-timeline {
+  position: relative;
+  margin-top: 80px;
+  padding: 48px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 24px;
+  background: var(--bg-card);
+}
+
+.experience-gradient-line {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    #4f8ef7,
+    #7c3aed,
+    #22d3ee
+  );
+}
+
+.experience-content {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  align-items: center;
+  gap: 40px;
+}
+
+.experience-info {
+  min-width: 0;
+}
+
+.experience-title {
+  margin: 0 0 12px;
+  color: #f1f5f9;
+  font-size: 1.8rem;
+  font-weight: 700;
+  line-height: 1.35;
+  letter-spacing: -0.02em;
+  overflow-wrap: anywhere;
+}
+
+.experience-description {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.experience-stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px 20px;
+}
+
+.experience-stat {
+  min-width: 0;
+  text-align: center;
+}
+
+.experience-stat-value {
+  font-size: 2rem;
+  font-weight: 800;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+}
+
+.experience-stat-label {
+  margin-top: 6px;
+  color: #64748b;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .approach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+  }
+
+  .approach-header {
+    margin-bottom: 55px;
+  }
+
+  .approach-card {
+    padding: 30px 24px;
+  }
+
+  .experience-timeline {
+    margin-top: 60px;
+    padding: 36px;
+  }
+
+  .experience-content {
+    gap: 30px;
+  }
+
+  .experience-title {
+    font-size: 1.6rem;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 767px) {
+  .approach-header {
+    margin-bottom: 38px;
+  }
+
+  .approach-description {
+    max-width: 540px;
+  }
+
+  .approach-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .approach-card {
+    padding: 24px 20px;
+  }
+
+  .approach-card-title {
+    font-size: 1rem;
+  }
+
+  .approach-card-description {
+    font-size: 0.82rem;
+  }
+
+  .approach-number-watermark {
+    top: 13px;
+    right: 14px;
+    font-size: 3.4rem;
+  }
+
+  .experience-timeline {
+    margin-top: 45px;
+    padding: 28px;
+    border-radius: 20px;
+  }
+
+  .experience-content {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .experience-title {
+    font-size: 1.5rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 520px) {
+  .approach-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .approach-card {
+    padding: 26px 24px;
+  }
+
+  .approach-icon {
+    width: 48px;
+    height: 48px;
+  }
+
+  .approach-card-title {
+    font-size: 1.05rem;
+  }
+
+  .approach-card-description {
+    font-size: 0.875rem;
+  }
+
+  .experience-timeline {
+    padding: 24px 20px;
+  }
+
+  .experience-content {
+    gap: 28px;
+  }
+
+  .experience-title {
+    font-size: 1.35rem;
+  }
+
+  .experience-stats {
+    gap: 22px 12px;
+  }
+
+  .experience-stat-value {
+    font-size: 1.8rem;
+  }
+
+  .experience-stat-label {
+    font-size: 0.75rem;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+  .approach-card {
+    padding: 22px 18px;
+  }
+
+  .experience-timeline {
+    padding: 20px 16px;
+  }
+
+  .experience-title {
+    font-size: 1.2rem;
+  }
+
+  .experience-stat-value {
+    font-size: 1.6rem;
+  }
+
+  .experience-stat-label {
+    font-size: 0.7rem;
+  }
+}
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+  .approach-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .approach-card {
+    transition: none !important;
+  }
+}

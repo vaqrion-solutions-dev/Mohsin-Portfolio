@@ -1,0 +1,623 @@
+
+/* =========================================
+   CONTACT — CINEMATIC GLASS DESIGN
+========================================= */
+
+.contact-section {
+  position: relative !important;
+  isolation: isolate;
+  width: 100%;
+  min-height: 650px;
+  padding: 120px 25px !important;
+  overflow: hidden;
+  text-align: center;
+
+  background:
+    radial-gradient(
+      ellipse at 50% 45%,
+      rgba(63, 108, 255, 0.2) 0%,
+      transparent 55%
+    ),
+    radial-gradient(
+      ellipse at 10% 90%,
+      rgba(139, 74, 255, 0.12),
+      transparent 40%
+    ),
+    linear-gradient(180deg, #080d20, #090b1b 100%) !important;
+}
+
+.contact-section::before,
+.contact-section::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 340px;
+  height: 340px;
+  border-radius: 50%;
+  filter: blur(110px);
+  pointer-events: none;
+}
+
+.contact-section::before {
+  top: 5%;
+  left: -170px;
+  background: rgba(83, 83, 255, 0.2);
+}
+
+.contact-section::after {
+  right: -170px;
+  bottom: 0;
+  background: rgba(30, 190, 255, 0.17);
+}
+
+/* MAIN GLASS CARD */
+
+.contact-container {
+  position: relative;
+  z-index: 2;
+
+  width: min(100%, 1050px);
+  margin: 0 auto;
+  padding: 70px 35px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  border: 1px solid rgba(111, 157, 255, 0.28);
+  border-radius: 28px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(24, 35, 77, 0.78),
+    rgba(8, 14, 35, 0.91)
+  ) !important;
+
+  box-shadow:
+    0 25px 80px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(66, 112, 255, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.09);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+}
+
+/* EYEBROW */
+
+.contact-eyebrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+
+  color: #a89aff !important;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.contact-eyebrow-line {
+  width: 30px;
+  height: 1px;
+  flex-shrink: 0;
+
+  background: linear-gradient(90deg, #a66aff, #40d9ff);
+  box-shadow: 0 0 10px rgba(81, 145, 255, 0.6);
+}
+
+/* HEADING */
+
+.contact-title {
+  margin: 27px 0 18px !important;
+
+  color: #ffffff !important;
+  font-family: "Space Grotesk", sans-serif !important;
+  font-size: clamp(42px, 6vw, 72px) !important;
+  font-weight: 700 !important;
+  line-height: 1.08 !important;
+  letter-spacing: -2.5px;
+}
+
+.contact-title span {
+  color: transparent !important;
+
+  background: linear-gradient(
+    100deg,
+    #a16cff,
+    #638cff,
+    #3cdbf4
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+/* DESCRIPTION */
+
+.contact-description {
+  width: min(100%, 630px);
+  margin: 0 auto !important;
+
+  color: #aebbd8 !important;
+  font-size: 14px !important;
+  line-height: 1.9 !important;
+  text-align: center;
+}
+
+/* ACTION BUTTONS */
+
+.contact-actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 34px;
+}
+
+.contact-primary,
+.contact-secondary {
+  min-height: 52px;
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+
+  padding: 14px 22px;
+
+  color: #ffffff !important;
+  font-size: 12px;
+  font-weight: 700;
+
+  border-radius: 12px;
+  text-decoration: none !important;
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+.contact-primary {
+  border: 1px solid rgba(185, 169, 255, 0.6);
+
+  background: linear-gradient(
+    105deg,
+    #863cff,
+    #426dff,
+    #168bd4
+  );
+
+  box-shadow: 0 9px 30px rgba(83, 93, 255, 0.28);
+}
+
+.contact-secondary {
+  border: 1px solid rgba(95, 172, 255, 0.4);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.contact-primary:hover,
+.contact-secondary:hover {
+  color: #ffffff !important;
+  transform: translateY(-5px);
+
+  box-shadow: 0 12px 35px rgba(42, 159, 255, 0.3);
+}
+
+/* EMAIL */
+
+.contact-email {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 11px;
+  margin-top: 38px;
+  max-width: 100%;
+}
+
+.contact-small-label {
+  color: #8799c1 !important;
+  font-size: 9px !important;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.contact-email a {
+  max-width: 100%;
+  color: #c4dfff !important;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none !important;
+  overflow-wrap: anywhere;
+}
+
+.contact-email a:hover {
+  color: #4bd9ff !important;
+}
+
+/* SOCIAL BUTTONS */
+
+.contact-socials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 31px;
+}
+
+.contact-socials > span {
+  margin-right: 7px;
+}
+
+.contact-socials a.contact-social-link {
+  width: 43px;
+  height: 43px;
+  min-width: 43px;
+  padding: 0;
+
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+
+  color: #e6edff !important;
+  font-size: 13px;
+  font-weight: 800;
+
+  border: 1px solid rgba(113, 160, 255, 0.32);
+  border-radius: 50%;
+
+  background: rgba(65, 100, 180, 0.16);
+  text-decoration: none !important;
+
+  transition: 0.3s ease;
+}
+
+.contact-socials a.contact-social-link:hover {
+  color: #ffffff !important;
+  border-color: #48d7ff;
+
+  background: rgba(59, 136, 255, 0.2);
+
+  box-shadow: 0 0 16px rgba(45, 189, 255, 0.35);
+  transform: translateY(-4px);
+}
+
+/* BOTTOM STATEMENT */
+
+.contact-bottom {
+  width: 100%;
+  margin-top: 55px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 13px;
+
+  color: #a0afd0 !important;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.contact-bottom svg {
+  color: #a58aff;
+  flex-shrink: 0;
+}
+
+.contact-bottom-line {
+  width: clamp(20px, 6vw, 65px);
+  height: 1px;
+  flex-shrink: 0;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(103, 158, 255, 0.6)
+  );
+}
+
+/* =========================================
+   LARGE TABLETS
+========================================= */
+
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 100px 25px !important;
+  }
+
+  .contact-container {
+    width: min(100%, 900px);
+    padding: 65px 30px;
+  }
+
+  .contact-title {
+    font-size: clamp(44px, 7vw, 66px) !important;
+  }
+}
+
+/* =========================================
+   TABLETS
+========================================= */
+
+@media (max-width: 768px) {
+  .contact-section {
+    min-height: auto;
+    padding: 85px 22px !important;
+  }
+
+  .contact-container {
+    padding: 55px 28px;
+    border-radius: 25px;
+  }
+
+  .contact-title {
+    font-size: clamp(42px, 8vw, 58px) !important;
+    letter-spacing: -2px;
+  }
+
+  .contact-description {
+    max-width: 560px;
+    font-size: 13px !important;
+  }
+
+  .contact-actions {
+    gap: 13px;
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    padding: 13px 18px;
+  }
+
+  .contact-bottom {
+    margin-top: 45px;
+    gap: 10px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .contact-section {
+    min-height: auto;
+    padding: 75px 15px !important;
+  }
+
+  .contact-container {
+    width: 100%;
+    padding: 42px 18px;
+    border-radius: 20px;
+  }
+
+  .contact-eyebrow {
+    gap: 9px;
+    font-size: 9px;
+    letter-spacing: 2.3px;
+  }
+
+  .contact-eyebrow-line {
+    width: 22px;
+  }
+
+  .contact-title {
+    margin: 24px 0 16px !important;
+    font-size: clamp(38px, 10vw, 48px) !important;
+    letter-spacing: -1.5px;
+  }
+
+  .contact-description {
+    font-size: 13px !important;
+    line-height: 1.8 !important;
+  }
+
+  .contact-actions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 28px;
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    width: 100%;
+    min-height: 50px;
+    padding: 13px 15px;
+    font-size: 12px;
+  }
+
+  .contact-email {
+    margin-top: 30px;
+    gap: 10px;
+  }
+
+  .contact-email a {
+    font-size: 12px;
+  }
+
+  .contact-socials {
+    gap: 11px;
+    margin-top: 27px;
+  }
+
+  .contact-socials > span {
+    width: 100%;
+    margin: 0 0 5px;
+    text-align: center;
+  }
+
+  .contact-socials a.contact-social-link {
+    width: 41px;
+    height: 41px;
+    min-width: 41px;
+  }
+
+  .contact-bottom {
+    margin-top: 38px;
+    font-size: 8px;
+    line-height: 1.8;
+    letter-spacing: 1.2px;
+    gap: 8px;
+  }
+
+  .contact-bottom-line {
+    width: 18px;
+  }
+}
+
+/* =========================================
+   SMALL PHONES
+========================================= */
+
+@media (max-width: 420px) {
+  .contact-section {
+    padding: 65px 12px !important;
+  }
+
+  .contact-container {
+    padding: 38px 15px;
+    border-radius: 18px;
+  }
+
+  .contact-title {
+    font-size: clamp(35px, 9.5vw, 42px) !important;
+    letter-spacing: -1.2px;
+  }
+
+  .contact-description {
+    font-size: 12px !important;
+  }
+
+  .contact-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.8px;
+  }
+
+  .contact-eyebrow-line {
+    width: 18px;
+  }
+
+  .contact-email a {
+    font-size: 11px;
+  }
+
+  .contact-socials {
+    gap: 9px;
+  }
+
+  .contact-bottom {
+    font-size: 7px;
+    letter-spacing: 0.9px;
+    gap: 6px;
+  }
+
+  .contact-bottom svg {
+    width: 13px;
+    height: 13px;
+  }
+
+  .contact-bottom-line {
+    width: 12px;
+  }
+}
+
+/* =========================================
+   VERY SMALL PHONES
+========================================= */
+
+@media (max-width: 350px) {
+  .contact-section {
+    padding: 55px 9px !important;
+  }
+
+  .contact-container {
+    padding: 34px 12px;
+  }
+
+  .contact-title {
+    font-size: 34px !important;
+  }
+
+  .contact-description {
+    font-size: 11px !important;
+  }
+
+  .contact-primary,
+  .contact-secondary {
+    gap: 8px;
+    font-size: 11px;
+  }
+
+  .contact-email a {
+    font-size: 10px;
+  }
+
+  .contact-socials a.contact-social-link {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+  }
+
+  .contact-bottom {
+    letter-spacing: 0.5px;
+  }
+}
+
+/* =========================================
+   CLICK & TOUCH FIX
+========================================= */
+
+.contact-container,
+.contact-actions,
+.contact-email,
+.contact-socials {
+  position: relative;
+  z-index: 5;
+}
+
+.contact-primary,
+.contact-secondary,
+.contact-email a,
+.contact-socials a {
+  position: relative;
+  z-index: 6;
+  pointer-events: auto !important;
+  cursor: pointer !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-primary:focus-visible,
+.contact-secondary:focus-visible,
+.contact-email a:focus-visible,
+.contact-socials a:focus-visible {
+  outline: 2px solid #48d7ff;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+  .contact-primary:hover,
+  .contact-secondary:hover,
+  .contact-socials a.contact-social-link:hover {
+    transform: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .contact-primary,
+  .contact-secondary,
+  .contact-socials a.contact-social-link {
+    transition: none;
+  }
+}

@@ -1,0 +1,467 @@
+
+/* =========================================
+   SKILLS SECTION
+========================================= */
+
+.skills-section {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  background: var(--bg-primary);
+}
+
+.skills-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.skills-background-glow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(800px, 100%);
+  height: 400px;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(79, 142, 247, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* =========================================
+   HEADER
+========================================= */
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.skills-label {
+  justify-content: center;
+}
+
+.skills-title {
+  text-align: center;
+}
+
+.skills-description {
+  max-width: 650px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* =========================================
+   CATEGORY TABS
+========================================= */
+
+.skills-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+}
+
+.skills-tab {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  color: #64748b;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.skills-tab:hover {
+  border-color: rgba(79, 142, 247, 0.35);
+  color: #cbd5e1;
+}
+
+.skills-tab.active {
+  border-color: rgba(79, 142, 247, 0.5);
+  background: rgba(79, 142, 247, 0.12);
+  color: #4f8ef7;
+  font-weight: 600;
+}
+
+.skills-tab-count {
+  min-width: 22px;
+  padding: 2px 7px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: #64748b;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-align: center;
+  transition: all 0.25s ease;
+}
+
+.skills-tab.active .skills-tab-count {
+  background: #4f8ef7;
+  color: #fff;
+}
+
+/* =========================================
+   SKILLS GRID
+========================================= */
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  animation: skillsGridEnter 0.35s ease both;
+}
+
+@keyframes skillsGridEnter {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =========================================
+   SKILL CARD
+========================================= */
+
+.skill-card {
+  min-width: 0;
+  min-height: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: default;
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    background 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+  transform: translateY(-6px);
+  background: color-mix(in srgb, var(--skill-color) 6%, transparent);
+  border-color: color-mix(in srgb, var(--skill-color) 25%, transparent);
+  box-shadow: 0 12px 40px
+    color-mix(in srgb, var(--skill-color) 12%, transparent);
+}
+
+/* ICON */
+
+.skill-icon-wrap {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-card:hover .skill-icon-wrap {
+  transform: scale(1.15);
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.skill-icon-express {
+  filter: invert(1) brightness(0.7);
+}
+
+.skill-icon-fallback {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--skill-color) 18%, transparent);
+  color: var(--skill-color);
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+/* NAME */
+
+.skill-name {
+  color: #64748b;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  text-align: center;
+  overflow-wrap: anywhere;
+  transition: color 0.3s ease;
+}
+
+.skill-card:hover .skill-name {
+  color: #f1f5f9;
+}
+
+/* COLOR INDICATOR */
+
+.skill-color-indicator {
+  width: 20px;
+  height: 2px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.1);
+  transition: background 0.3s ease;
+}
+
+.skill-card:hover .skill-color-indicator {
+  background: var(--skill-color);
+}
+
+/* =========================================
+   BOTTOM BANNER
+========================================= */
+
+.skills-bottom-banner {
+  margin-top: 64px;
+  padding: 32px;
+  border: 1px solid rgba(79, 142, 247, 0.12);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 142, 247, 0.06),
+    rgba(124, 58, 237, 0.06)
+  );
+  text-align: center;
+}
+
+.skills-bottom-banner p {
+  max-width: 600px;
+  margin: 0 auto;
+  color: #94a3b8;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.exploring-docker {
+  color: #4f8ef7;
+  font-weight: 600;
+}
+
+.exploring-aws {
+  color: #22d3ee;
+  font-weight: 600;
+}
+
+.exploring-next {
+  color: #7c3aed;
+  font-weight: 600;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1024px) {
+  .skills-grid {
+    max-width: 760px;
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 14px;
+  }
+
+  .skills-header {
+    margin-bottom: 50px;
+  }
+
+  .skills-tabs {
+    margin-bottom: 40px;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+  .skills-header {
+    margin-bottom: 38px;
+  }
+
+  .skills-description {
+    font-size: 0.9rem;
+    line-height: 1.7;
+  }
+
+  .skills-tabs {
+    gap: 8px;
+    margin-bottom: 35px;
+  }
+
+  .skills-tab {
+    padding: 9px 16px;
+    font-size: 0.82rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .skill-card {
+    min-height: 120px;
+    padding: 16px 8px;
+    gap: 8px;
+  }
+
+  .skill-icon-wrap {
+    width: 42px;
+    height: 42px;
+  }
+
+  .skill-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .skill-icon-fallback {
+    width: 36px;
+    height: 36px;
+  }
+
+  .skill-name {
+    font-size: 0.73rem;
+  }
+
+  .skills-bottom-banner {
+    margin-top: 45px;
+    padding: 25px 18px;
+    border-radius: 16px;
+  }
+
+  .skills-bottom-banner p {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .skills-tabs {
+    gap: 6px;
+  }
+
+  .skills-tab {
+    gap: 6px;
+    padding: 9px 12px;
+    font-size: 0.76rem;
+  }
+
+  .skills-grid {
+    gap: 9px;
+  }
+
+  .skill-card {
+    min-height: 110px;
+    padding: 13px 5px;
+  }
+
+  .skill-icon-wrap {
+    width: 38px;
+    height: 38px;
+  }
+
+  .skill-icon {
+    width: 33px;
+    height: 33px;
+  }
+
+  .skill-name {
+    font-size: 0.68rem;
+  }
+
+  .skills-bottom-banner {
+    padding: 22px 14px;
+  }
+}
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 320px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .skills-tab {
+    padding: 8px 10px;
+  }
+}
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+  .skill-card:hover {
+    transform: none;
+    box-shadow: none;
+  }
+
+  .skill-card:hover .skill-icon-wrap {
+    transform: none;
+  }
+
+  .skill-card:hover .skill-name {
+    color: #64748b;
+  }
+
+  .skill-card:hover .skill-color-indicator {
+    background: rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .skill-card,
+  .skill-icon-wrap,
+  .skill-name,
+  .skill-color-indicator,
+  .skills-tab {
+    transition: none;
+  }
+
+  .skills-grid {
+    animation: none;
+  }
+}

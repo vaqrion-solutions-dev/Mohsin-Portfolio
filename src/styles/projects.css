@@ -1,0 +1,575 @@
+
+/* =========================================
+   PROJECTS SECTION
+========================================= */
+
+.projects-section {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background: var(--bg-secondary);
+}
+
+.projects-container {
+  position: relative;
+  z-index: 1;
+}
+
+.projects-background-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(700px, 90vw);
+  height: 500px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(
+    ellipse,
+    rgba(124, 58, 237, 0.07) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+.projects-header {
+  margin-bottom: 48px;
+}
+
+.projects-heading-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.projects-heading-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.projects-github-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.projects-github-link:hover {
+  color: #4f8ef7;
+}
+
+/* =========================================
+   FILTER TABS
+========================================= */
+
+.projects-filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 40px;
+}
+
+.projects-filter {
+  min-height: 38px;
+  padding: 8px 18px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 8px;
+  background: transparent;
+  color: #64748b;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 400;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.projects-filter:hover {
+  border-color: rgba(124, 58, 237, 0.3);
+  color: #a78bfa;
+}
+
+.projects-filter.active {
+  border-color: rgba(124, 58, 237, 0.4);
+  background: rgba(124, 58, 237, 0.12);
+  color: #a78bfa;
+  font-weight: 600;
+}
+
+.projects-filter:focus-visible,
+.project-card:focus-visible,
+.projects-github-link:focus-visible,
+.project-code-link:focus-visible,
+.featured-repo-button:focus-visible {
+  outline: 2px solid #22d3ee;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   PROJECT GRID
+========================================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  align-items: start;
+  gap: 20px;
+}
+
+.project-card {
+  min-width: 0;
+  padding: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.02);
+  cursor: pointer;
+  transition:
+    background 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-card.hovered {
+  transform: translateY(-3px);
+}
+
+.project-card.active {
+  border-color: color-mix(in srgb, var(--project-color) 35%, transparent);
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--project-gradient-from) 9%, transparent),
+    color-mix(in srgb, var(--project-gradient-to) 7%, transparent)
+  );
+  box-shadow: 0 0 35px
+    color-mix(in srgb, var(--project-color) 12%, transparent);
+  transform: scale(1.02);
+}
+
+.project-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.project-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 52px;
+  width: 52px;
+  height: 52px;
+  border: 1px solid
+    color-mix(in srgb, var(--project-color) 30%, transparent);
+  border-radius: 14px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--project-gradient-from) 18%, transparent),
+    color-mix(in srgb, var(--project-gradient-to) 12%, transparent)
+  );
+  font-size: 1.5rem;
+}
+
+.project-category {
+  max-width: 65%;
+  padding: 4px 10px;
+  overflow-wrap: anywhere;
+  border-radius: 6px;
+  background: color-mix(in srgb, var(--project-color) 9%, transparent);
+  color: var(--project-color);
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  text-align: right;
+}
+
+.project-title {
+  margin: 0 0 10px;
+  color: #f1f5f9;
+  font-size: 1.1rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+  overflow-wrap: anywhere;
+}
+
+.project-details {
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition:
+    max-height 0.4s ease,
+    opacity 0.3s ease;
+}
+
+.project-details.visible {
+  max-height: 500px;
+  opacity: 1;
+}
+
+.project-description {
+  margin: 0 0 16px;
+  color: #94a3b8;
+  font-size: 0.875rem;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+
+.project-highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.project-highlight {
+  max-width: 100%;
+  padding: 4px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.04);
+  color: #94a3b8;
+  font-size: 0.72rem;
+  overflow-wrap: anywhere;
+}
+
+.project-tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 12px;
+}
+
+.project-tech,
+.project-tech-more {
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.03);
+  color: #64748b;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  overflow-wrap: anywhere;
+}
+
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.project-code-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: #4f8ef7;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.project-code-link:hover {
+  gap: 10px;
+}
+
+/* =========================================
+   FEATURED REPOSITORY
+========================================= */
+
+.featured-repo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  margin-top: 64px;
+  padding: 32px;
+  border: 1px solid rgba(34, 211, 238, 0.15);
+  border-radius: 20px;
+  background: linear-gradient(
+    135deg,
+    rgba(34, 211, 238, 0.06),
+    rgba(79, 142, 247, 0.06)
+  );
+}
+
+.featured-repo-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.featured-repo-label {
+  margin-bottom: 8px;
+  color: #22d3ee;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+}
+
+.featured-repo-title {
+  margin: 0 0 8px;
+  color: #f1f5f9;
+  font-size: 1.3rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.featured-repo-description {
+  max-width: 480px;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+.featured-repo-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, #22d3ee, #4f8ef7);
+  white-space: nowrap;
+}
+
+/* =========================================
+   TABLET — 768px to 1024px
+========================================= */
+
+@media (max-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .project-card {
+    padding: 24px;
+  }
+
+  .projects-header {
+    margin-bottom: 38px;
+  }
+
+  .projects-filters {
+    margin-bottom: 32px;
+  }
+
+  .featured-repo {
+    margin-top: 52px;
+  }
+}
+
+/* =========================================
+   MOBILE — up to 767px
+========================================= */
+
+@media (max-width: 767px) {
+  .projects-header {
+    margin-bottom: 30px;
+  }
+
+  .projects-heading-row {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .projects-github-link {
+    font-size: 0.82rem;
+  }
+
+  .projects-filters {
+    gap: 8px;
+    margin-bottom: 28px;
+  }
+
+  .projects-filter {
+    min-height: 36px;
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+  }
+
+  .project-card {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
+  .project-card.active {
+    transform: none;
+  }
+
+  .project-card-top {
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .project-icon {
+    flex-basis: 44px;
+    width: 44px;
+    height: 44px;
+    font-size: 1.3rem;
+  }
+
+  .project-category {
+    padding: 4px 7px;
+    font-size: 0.62rem;
+  }
+
+  .project-title {
+    font-size: 0.98rem;
+  }
+
+  .project-description {
+    font-size: 0.82rem;
+  }
+
+  .project-tech-list {
+    gap: 5px;
+  }
+
+  .project-tech,
+  .project-tech-more {
+    font-size: 0.64rem;
+  }
+
+  .featured-repo {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 42px;
+    padding: 24px;
+  }
+
+  .featured-repo-button {
+    width: 100%;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE — up to 520px
+========================================= */
+
+@media (max-width: 520px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .project-card {
+    padding: 22px;
+  }
+
+  .project-card-top {
+    margin-bottom: 18px;
+  }
+
+  .project-title {
+    font-size: 1.05rem;
+  }
+
+  .project-category {
+    font-size: 0.66rem;
+  }
+
+  .project-tech,
+  .project-tech-more {
+    font-size: 0.68rem;
+  }
+
+  .projects-filters {
+    gap: 7px;
+  }
+
+  .projects-filter {
+    padding: 7px 11px;
+    font-size: 0.75rem;
+  }
+
+  .featured-repo {
+    padding: 21px;
+    border-radius: 16px;
+  }
+
+  .featured-repo-title {
+    font-size: 1.15rem;
+  }
+
+  .featured-repo-description {
+    font-size: 0.84rem;
+  }
+}
+
+/* =========================================
+   VERY SMALL MOBILE — up to 360px
+========================================= */
+
+@media (max-width: 360px) {
+  .project-card {
+    padding: 18px;
+  }
+
+  .projects-filter {
+    padding: 6px 9px;
+    font-size: 0.7rem;
+  }
+
+  .project-title {
+    font-size: 1rem;
+  }
+
+  .featured-repo {
+    padding: 18px;
+  }
+
+  .featured-repo-label {
+    font-size: 0.64rem;
+  }
+
+  .featured-repo-button {
+    font-size: 0.82rem;
+  }
+}
+
+/* =========================================
+   TOUCH DEVICES
+========================================= */
+
+@media (hover: none) {
+  .project-card.hovered {
+    transform: none;
+  }
+
+  .project-card.active {
+    transform: none;
+  }
+}
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .project-details,
+  .projects-filter,
+  .project-code-link,
+  .projects-github-link {
+    transition: none !important;
+  }
+}
