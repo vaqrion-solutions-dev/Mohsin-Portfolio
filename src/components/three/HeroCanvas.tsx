@@ -1,10 +1,19 @@
+
 import React, { useRef, useMemo } from 'react';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { Sphere, MeshDistortMaterial, Float, Stars } from '@react-three/drei';
 import * as THREE from 'three';
 
 // Floating geometric shapes
-function FloatingOrb({ position, color, size = 1 }: { position: [number, number, number]; color: string; size?: number }) {
+function FloatingOrb({
+  position,
+  color,
+  size = 1
+}: {
+  position: [number, number, number];
+  color: string;
+  size?: number;
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
 
   useFrame((state) => {
@@ -45,14 +54,14 @@ function ParticleField() {
       positions[i * 3 + 1] = (Math.random() - 0.5) * 30;
       positions[i * 3 + 2] = (Math.random() - 0.5) * 20;
 
-      // Mix of blue and cyan
       const colorChoice = Math.random();
+
       if (colorChoice < 0.5) {
-        colors[i * 3] = 0.31;     // #4f8ef7
+        colors[i * 3] = 0.31;
         colors[i * 3 + 1] = 0.56;
         colors[i * 3 + 2] = 0.97;
       } else {
-        colors[i * 3] = 0.13;     // #22d3ee
+        colors[i * 3] = 0.13;
         colors[i * 3 + 1] = 0.83;
         colors[i * 3 + 2] = 0.93;
       }
@@ -101,13 +110,16 @@ function CameraController() {
       mouse.current.x = (e.clientX / window.innerWidth - 0.5) * 2;
       mouse.current.y = -(e.clientY / window.innerHeight - 0.5) * 2;
     };
+
     window.addEventListener('mousemove', handleMouseMove);
+
     return () => window.removeEventListener('mousemove', handleMouseMove);
   }, []);
 
   useFrame(() => {
     target.current.x += (mouse.current.x * 0.8 - target.current.x) * 0.04;
     target.current.y += (mouse.current.y * 0.5 - target.current.y) * 0.04;
+
     camera.position.x = target.current.x;
     camera.position.y = target.current.y;
     camera.lookAt(0, 0, 0);
@@ -117,10 +129,18 @@ function CameraController() {
 }
 
 // Torus ring
-function TorusRing({ position, color, rotation }: { position: [number, number, number]; color: string; rotation?: [number, number, number] }) {
+function TorusRing({
+  position,
+  color,
+  rotation
+}: {
+  position: [number, number, number];
+  color: string;
+  rotation?: [number, number, number];
+}) {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (!meshRef.current) return;
     meshRef.current.rotation.x += 0.003;
     meshRef.current.rotation.y += 0.005;
@@ -169,7 +189,11 @@ const HeroCanvas: React.FC<HeroCanvasProps> = ({ isMobile = false }) => {
       camera={{ position: [0, 0, 8], fov: 60 }}
       dpr={[1, isMobile ? 1.5 : 2]}
       style={{ position: 'absolute', inset: 0 }}
-      gl={{ antialias: !isMobile, alpha: true, powerPreference: 'high-performance' }}
+      gl={{
+        antialias: !isMobile,
+        alpha: true,
+        powerPreference: 'high-performance'
+      }}
     >
       {/* Lighting */}
       <ambientLight intensity={0.3} />
@@ -199,9 +223,21 @@ const HeroCanvas: React.FC<HeroCanvasProps> = ({ isMobile = false }) => {
       {!isMobile && (
         <>
           <IcoMesh position={[3, 2, -1]} />
-          <TorusRing position={[-2, -1, -2]} color="#4f8ef7" rotation={[0.5, 0.3, 0]} />
-          <TorusRing position={[2, -1.5, -3]} color="#22d3ee" rotation={[0.8, 0, 0.3]} />
-          <TorusRing position={[0, 2, -2]} color="#7c3aed" rotation={[0, 0.5, 0.5]} />
+          <TorusRing
+            position={[-2, -1, -2]}
+            color="#4f8ef7"
+            rotation={[0.5, 0.3, 0]}
+          />
+          <TorusRing
+            position={[2, -1.5, -3]}
+            color="#22d3ee"
+            rotation={[0.8, 0, 0.3]}
+          />
+          <TorusRing
+            position={[0, 2, -2]}
+            color="#7c3aed"
+            rotation={[0, 0.5, 0.5]}
+          />
         </>
       )}
 
